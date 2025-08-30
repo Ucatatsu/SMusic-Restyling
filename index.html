@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMusic - платформа с кринжовыми ИИ треками для любителей рофла">
+    <meta name="keywords" content="кринж, ИИ треки, рофл, приколы, SMusic">
+    <title>SMusic - Платформа кринжовых ИИ треков</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP для анимаций курсора -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div id="animated-background" class="animated-background"></div>
+    
+    <!-- Обычная навигация -->
+    <header class="main-header" role="banner">
+        <nav class="main-nav" role="navigation" aria-label="Главная навигация">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <h1 class="site-logo" aria-label="SMusic - Главная страница">
+                        <span class="logo-letter">S</span>
+                        <span class="logo-letter">M</span>
+                        <span class="logo-letter">u</span>
+                        <span class="logo-letter">s</span>
+                        <span class="logo-letter">i</span>
+                        <span class="logo-letter">c</span>
+                    </h1>
+                </a>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button cursor-target active" aria-label="Перейти к трекам">
+                    <span class="button-text">Треки</span>
+                    <span class="button-icon">🎵</span>
+                </a>
+                <a href="about.html" class="nav-button cursor-target" aria-label="Информация о проекте">
+                    <span class="button-text">О проекте</span>
+                    <span class="button-icon">ℹ️</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="parallax-item parallax-item-1" data-speed="0.8"></div>
+        <section class="new-tracks-section" aria-labelledby="new-tracks-title">
+            <h2 id="new-tracks-title" class="section-title">Кринжовые ИИ треки</h2>
+            <div class="track-cards-container" role="list" aria-label="Список новых треков">
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Голый дрищ">
+                    <img src="images/covers/album1.jpg" alt="Обложка альбома - Голый дрищ" class="album-cover" loading="lazy">
+                    <h3 class="track-title">Голый дрищ</h3>
+                    <p class="track-artist">U.T.T.</p>
+                </article>
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Автобус">
+                    <img src="images/covers/album2.jpg" alt="Обложка альбома - Автобус" class="album-cover" loading="lazy">
+                    <h3 class="track-title">Автобус</h3>
+                    <p class="track-artist">U.T.T.</p>
+                </article>
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Black seven 777">
+                    <img src="images/covers/album3.jpg" alt="Обложка альбома - Black seven 777" class="album-cover" loading="lazy">
+                    <h3 class="track-title">Black seven 777</h3>
+                    <p class="track-artist">Unknown</p>
+                </article>
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Ночной город">
+                    <img src="images/covers/album4.jpg" alt="Обложка альбома - Ночной город" class="album-cover" loading="lazy">
+                    <h3 class="track-title">Гоблины клеш рояль</h3>
+                    <p class="track-artist">U.T.T.</p>
+                </article>
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Весна">
+                    <img src="images/covers/album.jpg" alt="Обложка альбома - Весна" class="album-cover" loading="lazy">
+                    <h3 class="track-title">пока что пусто</h3>
+                    <p class="track-artist">никто</p>
+                </article>
+                <article class="track-card cursor-target" role="listitem" tabindex="0" aria-label="Трек: Дождь">
+                    <img src="images/covers/album.jpg" alt="Обложка альбома - Дождь" class="album-cover" loading="lazy">
+                    <h3 class="track-title">пока что пусто</h3>
+                    <p class="track-artist">никто</p>
+                </article>
+            </div>
+        </section>
+        <div class="parallax-item parallax-item-2" data-speed="1.2"></div>
+        <div class="parallax-item parallax-item-3" data-speed="0.6"></div>
+    </main>
+
+    <div class="music-player-fixed" role="region" aria-label="Музыкальный плеер">
+        <div class="player-controls-fixed">
+            <div class="song-info-fixed">
+                <div class="album-cover-container">
+                    <img src="images/covers/album1.jpg" alt="Обложка текущего трека" class="current-album-cover">
+                    <div class="album-cover-overlay">
+                        <div class="play-indicator"></div>
+                    </div>
+                </div>
+                <div class="text-info">
+                    <h4 class="current-song-title" aria-label="Название текущего трека">Голый дрищ</h4>
+                    <p class="current-song-artist" aria-label="Исполнитель текущего трека">U.T.T.</p>
+                </div>
+            </div>
+            
+            <div class="main-controls">
+                <div class="playback-controls-fixed" role="group" aria-label="Элементы управления воспроизведением">
+                    <button id="prev-fixed" class="player-button-fixed cursor-target" aria-label="Предыдущий трек">
+                        <span class="button-icon">⏮</span>
+                    </button>
+                    <button id="play-pause-fixed" class="player-button-fixed play-pause-btn cursor-target" aria-label="Воспроизвести или поставить на паузу">
+                        <span class="button-icon">▶</span>
+                    </button>
+                    <button id="next-fixed" class="player-button-fixed cursor-target" aria-label="Следующий трек">
+                        <span class="button-icon">⏭</span>
+                    </button>
+                </div>
+                
+                <div class="progress-container-fixed" role="group" aria-label="Прогресс воспроизведения">
+                    <span class="current-time-fixed" aria-label="Текущее время">0:00</span>
+                    <div class="progress-bar-fixed cursor-target" role="slider" aria-label="Прогресс трека" tabindex="0">
+                        <div class="progress-fixed"></div>
+                    </div>
+                    <span class="duration-fixed" aria-label="Общая длительность">0:00</span>
+                </div>
+            </div>
+            
+            <div class="volume-controls">
+                <button id="mute-button" class="volume-button cursor-target" aria-label="Выключить звук">
+                    <span class="volume-icon">🔊</span>
+                </button>
+                <div class="volume-slider-container">
+                    <div class="volume-slider cursor-target" role="slider" aria-label="Громкость" tabindex="0">
+                        <div class="volume-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer" role="contentinfo">
+        <p>©2025 UCATATSU COPYRIGHT RESERVED TO SMUSIC. Не все права защищены.</p>
+        <p>Создано с 💩 для любителей кринжа</p>
+    </footer>
+
+    <!-- Кастомный курсор -->
+    <div class="target-cursor-wrapper">
+        <div class="target-cursor-dot"></div>
+        <div class="target-cursor-corner corner-tl"></div>
+        <div class="target-cursor-corner corner-tr"></div>
+        <div class="target-cursor-corner corner-br"></div>
+        <div class="target-cursor-corner corner-bl"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
