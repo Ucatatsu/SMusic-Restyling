@@ -793,6 +793,73 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Улучшения для сенсорных устройств */
+@media (max-width: 768px) {
+    /* Увеличиваем размеры кнопок для лучшего касания */
+    .nav-button {
+        min-height: 32px;
+        min-width: 60px;
+    }
+    
+    .player-button-fixed,
+    .volume-button {
+        min-height: 28px;
+        min-width: 28px;
+    }
+    
+    /* Улучшаем отзывчивость на касания */
+    .track-card,
+    .nav-button,
+    .player-button-fixed,
+    .volume-button,
+    .progress-bar-fixed,
+    .volume-slider {
+        -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+        touch-action: manipulation;
+    }
+    
+    /* Дополнительные минимальные размеры для маленьких экранов */
+    @media (max-width: 480px) {
+        .nav-button {
+            min-height: 28px;
+            min-width: 50px;
+        }
+        
+        .player-button-fixed,
+        .volume-button {
+            min-height: 24px;
+            min-width: 24px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .nav-button {
+            min-height: 24px;
+            min-width: 40px;
+        }
+        
+        .player-button-fixed,
+        .volume-button {
+            min-height: 20px;
+            min-width: 20px;
+        }
+    }
+    
+    /* Отключаем hover эффекты на сенсорных устройствах */
+    .track-card:hover,
+    .nav-button:hover,
+    .player-button-fixed:hover,
+    .volume-button:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+    
+    /* Улучшаем скроллинг */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -870,6 +937,21 @@ body.cursor-hidden {
 
 body.cursor-hidden * {
     cursor: none !important;
+}
+
+/* Скрываем кастомный курсор на мобильных устройствах */
+@media (max-width: 768px) {
+    .target-cursor-wrapper {
+        display: none !important;
+    }
+    
+    body.cursor-hidden {
+        cursor: auto !important;
+    }
+    
+    body.cursor-hidden * {
+        cursor: auto !important;
+    }
 }
 
 /* Обычная навигация */
@@ -1201,6 +1283,17 @@ body.light-theme .contact-info p {
     .about-text {
         font-size: 1em;
     }
+    
+    .tech-list li,
+    .features-list li,
+    .goals-list li {
+        font-size: 0.95em;
+        padding-left: 20px;
+    }
+    
+    .contact-info {
+        padding: 18px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1217,12 +1310,61 @@ body.light-theme .contact-info p {
         font-size: 1.2em;
     }
     
+    .about-text {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    
+    .tech-list li,
+    .features-list li,
+    .goals-list li {
+        font-size: 0.9em;
+        padding-left: 18px;
+        line-height: 1.5;
+    }
+    
     .contact-info {
         padding: 15px;
     }
     
     .contact-info p {
         font-size: 0.9em;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    .about-card {
+        padding: 12px;
+    }
+    
+    .about-subtitle {
+        font-size: 1.1em;
+    }
+    
+    .about-text {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+    
+    .tech-list li,
+    .features-list li,
+    .goals-list li {
+        font-size: 0.85em;
+        padding-left: 15px;
+        line-height: 1.4;
+    }
+    
+    .contact-info {
+        padding: 12px;
+    }
+    
+    .contact-info p {
+        font-size: 0.85em;
     }
 }
 
@@ -1264,3 +1406,530 @@ body.light-theme .contact-info p {
 }
 
 .new-tracks-section {
+    margin-top: 40px;
+}
+
+/* Улучшенная адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 8px 15px;
+    }
+    
+    .main-nav {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .nav-buttons {
+        gap: 8px;
+    }
+    
+    .nav-button {
+        padding: 6px 12px;
+        font-size: 0.75em;
+    }
+    
+    .main-content {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+    
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    
+    .track-cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .track-card {
+        margin: 0;
+    }
+    
+    .album-cover {
+        height: 220px;
+    }
+    
+    /* Компактный мобильный плеер */
+    .music-player-fixed {
+        padding: 8px 12px;
+    }
+    
+    .player-controls-fixed {
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .song-info-fixed {
+        max-width: 120px;
+        min-width: 100px;
+        flex-shrink: 0;
+    }
+    
+    .current-album-cover {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .current-song-title {
+        font-size: 0.85em;
+    }
+    
+    .current-song-artist {
+        font-size: 0.7em;
+    }
+    
+    .main-controls {
+        gap: 6px;
+        flex-grow: 1;
+        justify-content: center;
+    }
+    
+    .playback-controls-fixed {
+        gap: 8px;
+    }
+    
+    .player-button-fixed {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9em;
+    }
+    
+    .play-pause-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
+    }
+    
+    .progress-container-fixed {
+        max-width: 150px;
+        gap: 6px;
+    }
+    
+    .current-time-fixed, .duration-fixed {
+        font-size: 0.7em;
+        min-width: 30px;
+    }
+    
+    .progress-bar-fixed {
+        height: 4px;
+    }
+    
+    .volume-controls {
+        gap: 6px;
+        flex-shrink: 0;
+    }
+    
+    .volume-slider-container {
+        width: 50px;
+    }
+    
+    .volume-button {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+    }
+    
+    body {
+        padding-bottom: 80px;
+    }
+    
+    .main-footer {
+        padding: 20px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 6px 12px;
+    }
+    
+    .site-logo {
+        font-size: 1.3em;
+    }
+    
+    .nav-buttons {
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .nav-button {
+        padding: 4px 8px;
+        font-size: 0.65em;
+        width: auto;
+    }
+    
+    .main-content {
+        padding: 0 12px;
+        margin: 12px auto;
+    }
+    
+    .section-title {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    
+    .track-cards-container {
+        gap: 12px;
+    }
+    
+    .track-card {
+        margin: 0;
+    }
+    
+    .album-cover {
+        height: 160px;
+    }
+    
+    .track-title {
+        font-size: 1em;
+        margin: 10px 6px 3px;
+    }
+    
+    .track-artist {
+        font-size: 0.75em;
+        margin: 0 6px;
+    }
+    
+    /* Компактный плеер для маленьких экранов */
+    .music-player-fixed {
+        padding: 6px 10px;
+    }
+    
+    .player-controls-fixed {
+        gap: 6px;
+    }
+    
+    .song-info-fixed {
+        max-width: 100px;
+        min-width: 80px;
+    }
+    
+    .current-album-cover {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .current-song-title {
+        font-size: 0.8em;
+    }
+    
+    .current-song-artist {
+        font-size: 0.65em;
+    }
+    
+    .main-controls {
+        gap: 4px;
+    }
+    
+    .playback-controls-fixed {
+        gap: 6px;
+    }
+    
+    .player-button-fixed {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+    }
+    
+    .play-pause-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+    
+    .progress-container-fixed {
+        gap: 4px;
+        max-width: 120px;
+    }
+    
+    .current-time-fixed, .duration-fixed {
+        font-size: 0.65em;
+        min-width: 25px;
+    }
+    
+    .progress-bar-fixed {
+        height: 3px;
+    }
+    
+    .volume-controls {
+        gap: 4px;
+    }
+    
+    .volume-slider-container {
+        width: 40px;
+    }
+    
+    .volume-button {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7em;
+    }
+    
+    body {
+        padding-bottom: 70px;
+    }
+    
+    .main-footer {
+        padding: 15px;
+        font-size: 0.75em;
+    }
+    
+    .main-footer p {
+        margin: 3px 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .main-header {
+        padding: 4px 8px;
+    }
+    
+    .site-logo {
+        font-size: 1.1em;
+    }
+    
+    .nav-button {
+        padding: 3px 6px;
+        font-size: 0.6em;
+    }
+    
+    .main-content {
+        padding: 0 8px;
+        margin: 8px auto;
+    }
+    
+    .section-title {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    
+    .track-cards-container {
+        gap: 10px;
+    }
+    
+    .album-cover {
+        height: 140px;
+    }
+    
+    .track-title {
+        font-size: 0.9em;
+        margin: 8px 4px 2px;
+    }
+    
+    .track-artist {
+        font-size: 0.7em;
+        margin: 0 4px;
+    }
+    
+    /* Ультра-компактный плеер */
+    .music-player-fixed {
+        padding: 4px 8px;
+    }
+    
+    .player-controls-fixed {
+        gap: 4px;
+    }
+    
+    .song-info-fixed {
+        max-width: 80px;
+        min-width: 60px;
+    }
+    
+    .current-album-cover {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .current-song-title {
+        font-size: 0.7em;
+    }
+    
+    .current-song-artist {
+        font-size: 0.6em;
+    }
+    
+    .main-controls {
+        gap: 3px;
+    }
+    
+    .playback-controls-fixed {
+        gap: 4px;
+    }
+    
+    .player-button-fixed {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7em;
+    }
+    
+    .play-pause-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9em;
+    }
+    
+    .progress-container-fixed {
+        gap: 3px;
+        max-width: 100px;
+    }
+    
+    .current-time-fixed, .duration-fixed {
+        font-size: 0.6em;
+        min-width: 22px;
+    }
+    
+    .progress-bar-fixed {
+        height: 3px;
+    }
+    
+    .volume-slider-container {
+        width: 35px;
+    }
+    
+    .volume-button {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6em;
+    }
+    
+    body {
+        padding-bottom: 60px;
+    }
+    
+    .main-footer {
+        padding: 12px;
+        font-size: 0.7em;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 320px) {
+    .main-header {
+        padding: 3px 6px;
+    }
+    
+    .site-logo {
+        font-size: 1em;
+    }
+    
+    .nav-button {
+        padding: 2px 4px;
+        font-size: 0.55em;
+    }
+    
+    .main-content {
+        padding: 0 6px;
+        margin: 6px auto;
+    }
+    
+    .section-title {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+    
+    .track-cards-container {
+        gap: 8px;
+    }
+    
+    .album-cover {
+        height: 120px;
+    }
+    
+    .track-title {
+        font-size: 0.8em;
+        margin: 6px 3px 2px;
+    }
+    
+    .track-artist {
+        font-size: 0.65em;
+        margin: 0 3px;
+    }
+    
+    /* Микро-плеер */
+    .music-player-fixed {
+        padding: 3px 6px;
+    }
+    
+    .player-controls-fixed {
+        gap: 3px;
+    }
+    
+    .song-info-fixed {
+        max-width: 60px;
+        min-width: 50px;
+    }
+    
+    .current-album-cover {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .current-song-title {
+        font-size: 0.65em;
+    }
+    
+    .current-song-artist {
+        font-size: 0.55em;
+    }
+    
+    .main-controls {
+        gap: 2px;
+    }
+    
+    .playback-controls-fixed {
+        gap: 3px;
+    }
+    
+    .player-button-fixed {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6em;
+    }
+    
+    .play-pause-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+    }
+    
+    .progress-container-fixed {
+        gap: 2px;
+        max-width: 80px;
+    }
+    
+    .current-time-fixed, .duration-fixed {
+        font-size: 0.55em;
+        min-width: 20px;
+    }
+    
+    .progress-bar-fixed {
+        height: 2px;
+    }
+    
+    .volume-slider-container {
+        width: 30px;
+    }
+    
+    .volume-button {
+        width: 18px;
+        height: 18px;
+        font-size: 0.5em;
+    }
+    
+    body {
+        padding-bottom: 50px;
+    }
+    
+    .main-footer {
+        padding: 10px;
+        font-size: 0.65em;
+    }
+}
