@@ -821,8 +821,8 @@ html {
     /* Дополнительные минимальные размеры для маленьких экранов */
     @media (max-width: 480px) {
         .nav-button {
-            min-height: 28px;
-            min-width: 50px;
+            min-height: 20px;
+            min-width: 35px;
         }
         
         .player-button-fixed,
@@ -834,8 +834,8 @@ html {
     
     @media (max-width: 360px) {
         .nav-button {
-            min-height: 24px;
-            min-width: 40px;
+            min-height: 18px;
+            min-width: 30px;
         }
         
         .player-button-fixed,
@@ -967,6 +967,7 @@ body.cursor-hidden * {
     z-index: 100;
     will-change: transform;
     transform: translateZ(0);
+    min-height: 80px;
 }
 
 .main-nav {
@@ -1030,6 +1031,10 @@ body.cursor-hidden * {
     will-change: transform, box-shadow;
     transform: translateZ(0);
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
 }
 
 .nav-button:hover {
@@ -1043,11 +1048,16 @@ body.cursor-hidden * {
 
 .button-text {
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .button-icon {
     font-size: 1.1em;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .nav-button:hover .button-icon {
@@ -1412,28 +1422,42 @@ body.light-theme .contact-info p {
 /* Улучшенная адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .main-header {
-        padding: 8px 15px;
+        padding: 4px 10px;
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+        min-height: 50px;
     }
     
     .main-nav {
         flex-direction: row;
-        gap: 15px;
+        gap: 8px;
         align-items: center;
         justify-content: space-between;
     }
     
+    .site-logo {
+        font-size: 0.6em;
+    }
+    
     .nav-buttons {
-        gap: 8px;
+        gap: 2px;
+        max-width: 140px;
+        justify-content: center;
     }
     
     .nav-button {
-        padding: 6px 12px;
-        font-size: 0.75em;
+        padding: 2px 4px;
+        font-size: 0.45em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70px;
+        min-width: 60px;
     }
     
     .main-content {
         padding: 0 20px;
-        margin: 20px auto;
+        margin: 10px auto;
     }
     
     .section-title {
@@ -1541,34 +1565,44 @@ body.light-theme .contact-info p {
     }
     
     .main-footer {
-        padding: 20px;
+        padding: 15px;
         font-size: 0.8em;
     }
 }
 
 @media (max-width: 480px) {
     .main-header {
-        padding: 6px 12px;
+        padding: 2px 8px;
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+        min-height: 40px;
     }
     
     .site-logo {
-        font-size: 1.3em;
+        font-size: 0.5em;
     }
     
     .nav-buttons {
         flex-direction: row;
-        gap: 6px;
+        gap: 2px;
+        max-width: 120px;
+        justify-content: center;
     }
     
     .nav-button {
-        padding: 4px 8px;
-        font-size: 0.65em;
+        padding: 1px 3px;
+        font-size: 0.4em;
         width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60px;
+        min-width: 50px;
     }
     
     .main-content {
         padding: 0 12px;
-        margin: 12px auto;
+        margin: 6px auto;
     }
     
     .section-title {
@@ -1678,7 +1712,7 @@ body.light-theme .contact-info p {
     }
     
     .main-footer {
-        padding: 15px;
+        padding: 12px;
         font-size: 0.75em;
     }
     
@@ -1689,21 +1723,29 @@ body.light-theme .contact-info p {
 
 @media (max-width: 360px) {
     .main-header {
-        padding: 4px 8px;
+        padding: 1px 6px;
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+        min-height: 35px;
     }
     
     .site-logo {
-        font-size: 1.1em;
+        font-size: 0.6em;
     }
     
     .nav-button {
-        padding: 3px 6px;
-        font-size: 0.6em;
+        padding: 1px 2px;
+        font-size: 0.35em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 50px;
+        min-width: 45px;
     }
     
     .main-content {
         padding: 0 8px;
-        margin: 8px auto;
+        margin: 4px auto;
     }
     
     .section-title {
@@ -1805,7 +1847,7 @@ body.light-theme .contact-info p {
     }
     
     .main-footer {
-        padding: 12px;
+        padding: 10px;
         font-size: 0.7em;
     }
 }
@@ -1813,21 +1855,29 @@ body.light-theme .contact-info p {
 /* Дополнительные стили для очень маленьких экранов */
 @media (max-width: 320px) {
     .main-header {
-        padding: 3px 6px;
+        padding: 1px 4px;
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+        min-height: 30px;
     }
     
     .site-logo {
-        font-size: 1em;
+        font-size: 0.5em;
     }
     
     .nav-button {
-        padding: 2px 4px;
-        font-size: 0.55em;
+        padding: 1px 2px;
+        font-size: 0.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 45px;
+        min-width: 40px;
     }
     
     .main-content {
         padding: 0 6px;
-        margin: 6px auto;
+        margin: 2px auto;
     }
     
     .section-title {
@@ -1929,7 +1979,7 @@ body.light-theme .contact-info p {
     }
     
     .main-footer {
-        padding: 10px;
+        padding: 8px;
         font-size: 0.65em;
     }
 }
